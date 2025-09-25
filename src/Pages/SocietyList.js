@@ -1,676 +1,142 @@
 
 
-// import React, { useState } from "react";
-// import {
-//   Box,
-//   Grid,
-//   TextField,
-//   Button,
-//   Typography,
-//   Card,
-//   CardContent,
-//   MenuItem,
-//   Table,
-//   TableBody,
-//   TableCell,
-//   TableContainer,
-//   TableHead,
-//   TableRow,
-//   Chip,
-//   IconButton,
-//   Pagination,
-//   InputAdornment,
-// } from "@mui/material";
-// import SearchIcon from "@mui/icons-material/Search";
-// import EditIcon from "@mui/icons-material/Edit";
-// import VisibilityIcon from "@mui/icons-material/Visibility";
-// import LocationOnIcon from "@mui/icons-material/LocationOn";
-
-// // Dummy Data
-// const societies = [
-//   {
-//     id: 1,
-//     name: "Sunshine Heights",
-//     regNo: "GVA2025001",
-//     chairman: "Rajesh Kumar",
-//     phone: "91+1234567899",
-//     location: "Mumbai, Maharashtra",
-//     type: "Residential",
-//     flats: 120,
-//     status: "Active",
-//   },
-//   {
-//     id: 2,
-//     name: "Lotus Garden Society",
-//     regNo: "GVA2025001",
-//     chairman: "Rajesh Kumar",
-//     phone: "91+1234567899",
-//     location: "Pune, Maharashtra",
-//     type: "Commercial",
-//     flats: 60,
-//     status: "Pending",
-//   },
-//   {
-//     id: 3,
-//     name: "Green Valley Apartment",
-//     regNo: "GVA2025001",
-//     chairman: "Rajesh Kumar",
-//     phone: "91+1234567899",
-//     location: "Mumbai, Maharashtra",
-//     type: "Commercial",
-//     flats: 120,
-//     status: "Inactive",
-//   },
-// ];
-
-// const statusColors = {
-//   Active: "success",
-//   Pending: "warning",
-//   Inactive: "default",
-// };
-
-// const SocietyList = () => {
-//   const [search, setSearch] = useState("");
-
-//   const filtered = societies.filter(
-//     (s) =>
-//       s.name.toLowerCase().includes(search.toLowerCase()) ||
-//       s.regNo.toLowerCase().includes(search.toLowerCase()) ||
-//       s.location.toLowerCase().includes(search.toLowerCase()) ||
-//       s.chairman.toLowerCase().includes(search.toLowerCase())
-//   );
-
-//   return (
-//     <Box p={3}>
-//       {/* 🔍 Search & Filter */}
-//       <Box display="flex" justifyContent="space-between" mb={3}>
-//         <TextField
-//           variant="outlined"
-//           placeholder="Search by name, registration number, location, or chairman"
-//           value={search}
-//           onChange={(e) => setSearch(e.target.value)}
-//           fullWidth
-//           InputProps={{
-//             startAdornment: (
-//               <InputAdornment position="start">
-//                 <SearchIcon />
-//               </InputAdornment>
-//             ),
-//           }}
-//           sx={{ mr: 2 }}
-//         />
-
-//         <TextField
-//           select
-//           label="All Status"
-//           defaultValue=""
-//           sx={{ minWidth: 150, mr: 2 }}
-//         >
-//           <MenuItem value="">All</MenuItem>
-//           <MenuItem value="Active">Active</MenuItem>
-//           <MenuItem value="Pending">Pending</MenuItem>
-//           <MenuItem value="Inactive">Inactive</MenuItem>
-//         </TextField>
-
-//         <TextField
-//           select
-//           label="Society Type"
-//           defaultValue=""
-//           sx={{ minWidth: 150 }}
-//         >
-//           <MenuItem value="">All</MenuItem>
-//           <MenuItem value="Residential">Residential</MenuItem>
-//           <MenuItem value="Commercial">Commercial</MenuItem>
-//         </TextField>
-//       </Box>
-
-//       {/* 🏢 Table */}
-//       <Card>
-//         <CardContent>
-//           <Typography variant="h6" mb={2}>
-//             Registered Societies ({filtered.length})
-//           </Typography>
-//           <TableContainer>
-//             <Table>
-//               <TableHead>
-//                 <TableRow>
-//                   <TableCell>Society Details</TableCell>
-//                   <TableCell>Registration Number</TableCell>
-//                   <TableCell>Chairman Name</TableCell>
-//                   <TableCell>Location</TableCell>
-//                   <TableCell>Type</TableCell>
-//                   <TableCell>Flats</TableCell>
-//                   <TableCell>Status</TableCell>
-//                   <TableCell>Actions</TableCell>
-//                 </TableRow>
-//               </TableHead>
-//               <TableBody>
-//                 {filtered.map((s) => (
-//                   <TableRow key={s.id}>
-//                     <TableCell>{s.name}</TableCell>
-//                     <TableCell>
-//                       <Chip
-//                         label={s.regNo}
-//                         sx={{ bgcolor: "#f3f0f8", fontWeight: "bold" }}
-//                       />
-//                     </TableCell>
-//                     <TableCell>
-//                       {s.chairman} <br />
-//                       <Typography variant="body2" color="text.secondary">
-//                         {s.phone}
-//                       </Typography>
-//                     </TableCell>
-//                     <TableCell>
-//                       <LocationOnIcon
-//                         fontSize="small"
-//                         sx={{ verticalAlign: "middle", mr: 0.5 }}
-//                       />
-//                       {s.location}
-//                     </TableCell>
-//                     <TableCell>{s.type}</TableCell>
-//                     <TableCell>{s.flats}</TableCell>
-//                     <TableCell>
-//                       <Chip
-//                         label={s.status}
-//                         color={statusColors[s.status]}
-//                         variant="outlined"
-//                       />
-//                     </TableCell>
-//                     <TableCell>
-//                       <IconButton size="small" color="primary">
-//                         <VisibilityIcon />
-//                       </IconButton>
-//                       <IconButton size="small" color="secondary">
-//                         <EditIcon />
-//                       </IconButton>
-//                     </TableCell>
-//                   </TableRow>
-//                 ))}
-//               </TableBody>
-//             </Table>
-//           </TableContainer>
-
-//           {/* 📑 Pagination */}
-//           <Box display="flex" justifyContent="flex-end" mt={2}>
-//             <Pagination count={68} page={1} color="primary" />
-//           </Box>
-//         </CardContent>
-//       </Card>
-//     </Box>
-//   );
-// };
-
-// export default SocietyList;
-
-// import React, { useState } from "react";
-// import {
-//   Box,
-//   Grid,
-//   TextField,
-//   Button,
-//   Typography,
-//   Card,
-//   CardContent,
-//   MenuItem,
-//   Table,
-//   TableBody,
-//   TableCell,
-//   TableContainer,
-//   TableHead,
-//   TableRow,
-//   Chip,
-//   IconButton,
-//   Pagination,
-//   InputAdornment,
-// } from "@mui/material";
-// import SearchIcon from "@mui/icons-material/Search";
-// import EditIcon from "@mui/icons-material/Edit";
-// import VisibilityIcon from "@mui/icons-material/Visibility";
-// import LocationOnIcon from "@mui/icons-material/LocationOn";
-// import { GetSocietiesApi } from "../APICall/APICall";
-
-// // Dummy Data
-// const societies = [
-//   {
-//     id: 1,
-//     name: "Sunshine Heights",
-//     regNo: "GVA2025001",
-//     chairman: "Rajesh Kumar",
-//     phone: "91+1234567899",
-//     location: "Mumbai, Maharashtra",
-//     type: "Residential",
-//     flats: 120,
-//     status: "Active",
-//   },
-//   {
-//     id: 2,
-//     name: "Lotus Garden Society",
-//     regNo: "GVA2025002",
-//     chairman: "Rajesh Kumar",
-//     phone: "91+1234567899",
-//     location: "Pune, Maharashtra",
-//     type: "Commercial",
-//     flats: 60,
-//     status: "Pending",
-//   },
-//   {
-//     id: 3,
-//     name: "Green Valley Apartment",
-//     regNo: "GVA2025003",
-//     chairman: "Rajesh Kumar",
-//     phone: "91+1234567899",
-//     location: "Mumbai, Maharashtra",
-//     type: "Commercial",
-//     flats: 120,
-//     status: "Inactive",
-//   },
-// ];
-
-// // Internal CSS Object
-// const styles = {
-//   container: { padding: 20,width: '100%' },
-//   searchContainer: { display: "flex", justifyContent: "space-between", marginBottom: 20 },
-//   textField: { marginRight: 10, minWidth: 150 },
-//   card: { marginTop: 20 },
-//   tableHeader: { fontWeight: "bold" },
-//   chipRegNo: { backgroundColor: "#f3f0f8", fontWeight: "bold" },
-//   chipStatus: {
-//     Active: { borderColor: "#4caf50", color: "#4caf50" },
-//     Pending: { borderColor: "#ff9800", color: "#ff9800" },
-//     Inactive: { borderColor: "#9e9e9e", color: "#9e9e9e" },
-//   },
-//   locationIcon: { verticalAlign: "middle", marginRight: 2 },
-//   paginationContainer: { display: "flex", justifyContent: "flex-end", marginTop: 20 },
-// };
-
-// const SocietyList = () => {
-//   const [search, setSearch] = useState("");
-
-//   const filtered = societies.filter(
-//     (s) =>
-//       s.name.toLowerCase().includes(search.toLowerCase()) ||
-//       s.regNo.toLowerCase().includes(search.toLowerCase()) ||
-//       s.location.toLowerCase().includes(search.toLowerCase()) ||
-//       s.chairman.toLowerCase().includes(search.toLowerCase())
-//   );
-
-//   return (
-//     <Box style={styles.container}>
-//       {/* 🔍 Search & Filter */}
-//       <Box style={styles.searchContainer}>
-//         <TextField
-//           variant="outlined"
-//           placeholder="Search by name, registration number, location, or chairman"
-//           value={search}
-//           onChange={(e) => setSearch(e.target.value)}
-//           fullWidth
-//           InputProps={{
-//             startAdornment: (
-//               <InputAdornment position="start">
-//                 <SearchIcon />
-//               </InputAdornment>
-//             ),
-//           }}
-//           style={{ marginRight: 10 }}
-//         />
-
-//         <TextField select label="All Status" defaultValue="" style={styles.textField}>
-//           <MenuItem value="">All</MenuItem>
-//           <MenuItem value="Active">Active</MenuItem>
-//           <MenuItem value="Pending">Pending</MenuItem>
-//           <MenuItem value="Inactive">Inactive</MenuItem>
-//         </TextField>
-
-//         <TextField select label="Society Type" defaultValue="" style={styles.textField}>
-//           <MenuItem value="">All</MenuItem>
-//           <MenuItem value="Residential">Residential</MenuItem>
-//           <MenuItem value="Commercial">Commercial</MenuItem>
-//         </TextField>
-//       </Box>
-
-//       {/* 🏢 Table */}
-//       <Card style={styles.card}>
-//         <CardContent>
-//           <Typography variant="h6" style={{ marginBottom: 10 }}>
-//             Registered Societies ({filtered.length})
-//           </Typography>
-//           <TableContainer>
-//             <Table>
-//               <TableHead>
-//                 <TableRow>
-//                   <TableCell style={styles.tableHeader}>Society Details</TableCell>
-//                   <TableCell style={styles.tableHeader}>Registration Number</TableCell>
-//                   <TableCell style={styles.tableHeader}>Chairman Name</TableCell>
-//                   <TableCell style={styles.tableHeader}>Location</TableCell>
-//                   <TableCell style={styles.tableHeader}>Type</TableCell>
-//                   <TableCell style={styles.tableHeader}>Flats</TableCell>
-//                   <TableCell style={styles.tableHeader}>Status</TableCell>
-//                   <TableCell style={styles.tableHeader}>Actions</TableCell>
-//                 </TableRow>
-//               </TableHead>
-//               <TableBody>
-//                 {filtered.map((s) => (
-//                   <TableRow key={s.id}>
-//                     <TableCell>{s.name}</TableCell>
-//                     <TableCell>
-//                       <Chip label={s.regNo} style={styles.chipRegNo} />
-//                     </TableCell>
-//                     <TableCell>
-//                       {s.chairman} <br />
-//                       <Typography variant="body2" color="textSecondary">
-//                         {s.phone}
-//                       </Typography>
-//                     </TableCell>
-//                     <TableCell>
-//                       <LocationOnIcon fontSize="small" style={styles.locationIcon} />
-//                       {s.location}
-//                     </TableCell>
-//                     <TableCell>{s.type}</TableCell>
-//                     <TableCell>{s.flats}</TableCell>
-//                     <TableCell>
-//                       <Chip
-//                         label={s.status}
-//                         variant="outlined"
-//                         style={styles.chipStatus[s.status]}
-//                       />
-//                     </TableCell>
-//                     <TableCell>
-//                       <IconButton size="small" color="primary">
-//                         <VisibilityIcon />
-//                       </IconButton>
-//                       <IconButton size="small" color="secondary">
-//                         <EditIcon />
-//                       </IconButton>
-//                     </TableCell>
-//                   </TableRow>
-//                 ))}
-//               </TableBody>
-//             </Table>
-//           </TableContainer>
-
-//           {/* 📑 Pagination */}
-//           <Box style={styles.paginationContainer}>
-//             <Pagination count={68} page={1} color="primary" />
-//           </Box>
-//         </CardContent>
-//       </Card>
-//     </Box>
-//   );
-// };
-
-// export default SocietyList;
-
 
 // import React, { useState, useEffect } from "react";
 // import {
-//   Box,
-//   Card,
-//   CardContent,
-//   Typography,
-//   Table,
-//   TableBody,
-//   TableCell,
-//   TableContainer,
-//   TableHead,
-//   TableRow,
+//   Box, TextField, MenuItem, Card, CardContent, Typography, Table, TableBody, TableCell,
+//   TableContainer, TableHead, TableRow, Chip, IconButton, Pagination, InputAdornment,
 // } from "@mui/material";
-// import { GetSocietiesApi } from "../APICall/APICall";
+// import { Link } from "react-router-dom";
+// import SearchIcon from "@mui/icons-material/Search";
+// import EditIcon from "@mui/icons-material/Edit";
+// import VisibilityIcon from "@mui/icons-material/Visibility";
+// import MailOutlineIcon from '@mui/icons-material/MailOutline';
+// import { GetSocietiesApi } from "../APICall/APIService";
+// const statusColors = {
+//   Active: { borderColor: "#4caf50", color: "#4caf50" },
+//   Inactive: { borderColor: "#9e9e9e", color: "#9e9e9e" },
+// };
 
-// // Internal CSS
 // const styles = {
-//   container: { padding: 20, width: "100%" },
-//   card: { marginTop: 20 },
-//   tableHeader: { fontWeight: "bold", backgroundColor: "#f0f0f0" },
-//   tableCell: { padding: "8px 12px" },
-//   title: { marginBottom: 10 },
+//   container: { padding: 12, width: "100%", height: "50%" },
+//   searchContainer: { display: "flex", flexWrap: "wrap", gap: 10, marginBottom: 20, alignItems: "center", position: "sticky", top: 0, zIndex: 10, backgroundColor: "#fff", borderBottom: "1px solid #ddd" },
+//   searchInput: { flex: 1, minWidth: 200 },
+//   chipRegNo: { backgroundColor: "#f3f0f8", fontWeight: "bold" },
+//   tableHeader: { fontWeight: "bold", position: "sticky", zIndex: 5 },
+//   paginationContainer: { display: "flex", justifyContent: "flex-end", marginTop: 10 },
 // };
 
 // const SocietyList = () => {
 //   const [societies, setSocieties] = useState([]);
+//   const [filteredSocieties, setFilteredSocieties] = useState([]);
+//   const [searchText, setSearchText] = useState("");
+//   const [statusFilter, setStatusFilter] = useState("");
+//   const [typeFilter, setTypeFilter] = useState("");
 //   const [loading, setLoading] = useState(true);
 
 //   useEffect(() => {
 //     const fetchSocieties = async () => {
 //       try {
-//         const response = await GetSocietiesApi(); // call your API function
-//         console.log("API Response:", response.data); // 🔹 check the data in console
-//         setSocieties(response.data); // update state
+//         const res = await GetSocietiesApi({});
+//         if (res?.Success && res.Data) {
+//           setSocieties(res.Data);
+//           setFilteredSocieties(res.Data);
+//         }
 //       } catch (error) {
-//         console.error("Error fetching societies:", error);
+//         console.error(error);
 //       } finally {
 //         setLoading(false);
 //       }
 //     };
-
 //     fetchSocieties();
 //   }, []);
 
-//   if (loading) {
-//     return (
-//       <Box style={styles.container}>
-//         <Typography>Loading societies...</Typography>
-//       </Box>
-//     );
-//   }
-
-//   if (!societies || societies.length === 0) {
-//     return (
-//       <Box style={styles.container}>
-//         <Typography>No societies found.</Typography>
-//       </Box>
-//     );
-//   }
-
-//   return (
-//     <Box style={styles.container}>
-//       <Card style={styles.card}>
-//         <CardContent>
-//           <Typography variant="h6" style={styles.title}>
-//             Societies ({societies.length})
-//           </Typography>
-//           <TableContainer>
-//             <Table>
-//               <TableHead>
-//                 <TableRow>
-//                   {Object.keys(societies[0]).map((key) => (
-//                     <TableCell key={key} style={styles.tableHeader}>
-//                       {key.replace(/_/g, " ").toUpperCase()}
-//                     </TableCell>
-//                   ))}
-//                 </TableRow>
-//               </TableHead>
-//               <TableBody>
-//                 {societies.map((society, index) => (
-//                   <TableRow key={index}>
-//                     {Object.values(society).map((value, idx) => (
-//                       <TableCell key={idx} style={styles.tableCell}>
-//                         {value !== null ? value.toString() : "-"}
-//                       </TableCell>
-//                     ))}
-//                   </TableRow>
-//                 ))}
-//               </TableBody>
-//             </Table>
-//           </TableContainer>
-//         </CardContent>
-//       </Card>
-//     </Box>
-//   );
-// };
-
-// export default SocietyList;
-
-
-// import React, { useState, useEffect } from "react";
-// import {
-//   Box,
-//   TextField,
-//   MenuItem,
-//   Card,
-//   CardContent,
-//   Typography,
-//   Table,
-//   TableBody,
-//   TableCell,
-//   TableContainer,
-//   TableHead,
-//   TableRow,
-//   Chip,
-//   IconButton,
-//   Pagination,
-//   InputAdornment,
-// } from "@mui/material";
-// import SearchIcon from "@mui/icons-material/Search";
-// import EditIcon from "@mui/icons-material/Edit";
-// import VisibilityIcon from "@mui/icons-material/Visibility";
-
-// import { GetSocietiesApi } from "../APICall/APICall";
-
-// // Status Colors
-// const statusColors = {
-//   Active: { borderColor: "#4caf50", color: "#4caf50" },
-//   Pending: { borderColor: "#ff9800", color: "#ff9800" },
-//   Inactive: { borderColor: "#9e9e9e", color: "#9e9e9e" },
-// };
-
-// // Internal CSS
-// const styles = {
-//   container: { padding: 20, width: "100%" },
-//   searchContainer: { display: "flex", justifyContent: "space-between", marginBottom: 20 },
-//   textField: { marginRight: 10, minWidth: 150 },
-//   card: { marginTop: 20 },
-//   tableHeader: { fontWeight: "bold" },
-//   chipRegNo: { backgroundColor: "#f3f0f8", fontWeight: "bold" },
-//   locationIcon: { verticalAlign: "middle", marginRight: 2 },
-//   paginationContainer: { display: "flex", justifyContent: "flex-end", marginTop: 20 },
-// };
-
-// // ... keep all imports and styles the same
-
-// const SocietyList = () => {
-//   const [societies, setSocieties] = useState([]);
-//   const [search, setSearch] = useState("");
-//   const [loading, setLoading] = useState(true);
-
-//  useEffect(() => {
-//   const fetchSocieties = async () => {
-//     try {
-//       const response = await GetSocietiesApi();
-//       console.log("API Response:", response.data);
-
-//       // Wrap single object in array
-//       if (response.data && typeof response.data === "object") {
-//         setSocieties([response.data]);
-//       } else {
-//        setSocieties(response.data.r || []);
-
-//       }
-//     } catch (error) {
-//       console.error("Error fetching societies:", error);
-//       setSocieties([]);
-//     } finally {
-//       setLoading(false);
+  
+//   useEffect(() => {
+//     let filtered = [...societies];
+//     if (searchText.trim()) {
+//       const text = searchText.toLowerCase();
+//       filtered = filtered.filter(s => s.descn.toLowerCase().includes(text) || s.registration_number.toLowerCase().includes(text));
 //     }
-//   };
+//     if (statusFilter) filtered = filtered.filter(s => (s.active ? "Active" : "Inactive") === statusFilter);
+//     if (typeFilter) filtered = filtered.filter(s => s.typeofsociety === typeFilter);
+//     setFilteredSocieties(filtered);
+//   }, [searchText, statusFilter, typeFilter, societies]);
 
-//   fetchSocieties();
-// }, []);
+//   if (loading) return <Box style={styles.container}><Typography>Loading societies...</Typography></Box>;
 
-//   const filtered = (societies || []).filter(
-//     (s) =>
-//       (s.descn && s.descn.toLowerCase().includes(search.toLowerCase())) ||
-//       (s.registration_number && s.registration_number.toLowerCase().includes(search.toLowerCase())) ||
-//       (s.city && s.city.toLowerCase().includes(search.toLowerCase())) ||
-//       (s.state && s.state.toLowerCase().includes(search.toLowerCase()))
-//   );
-
-//   // Only show loading while fetching
-//   if (loading) {
-//     return (
-//       <Box style={styles.container}>
-//         <Typography>Loading societies...</Typography>
-//       </Box>
-//     );
-//   }
-
-//   // Render table always, even if empty
 //   return (
 //     <Box style={styles.container}>
-//       {/* Search */}
 //       <Box style={styles.searchContainer}>
 //         <TextField
 //           variant="outlined"
-//           placeholder="Search by description, registration number, city, or state"
-//           value={search}
-//           onChange={(e) => setSearch(e.target.value)}
-//           fullWidth
-//           InputProps={{
-//             startAdornment: (
-//               <InputAdornment position="start">
-//                 <SearchIcon />
-//               </InputAdornment>
-//             ),
-//           }}
-//           style={{ marginRight: 10 }}
+//           placeholder="Search"
+//           value={searchText}
+//           onChange={(e) => setSearchText(e.target.value)}
+//           style={styles.searchInput}
+//           InputProps={{ startAdornment: (<InputAdornment position="start"><SearchIcon /></InputAdornment>), style: { height: 36, padding: "0 8px" } }}
 //         />
-
-//         <TextField select label="All Status" defaultValue="" style={styles.textField}>
+//         <TextField select size="small" label="Status" value={statusFilter} onChange={e => setStatusFilter(e.target.value)}>
 //           <MenuItem value="">All</MenuItem>
 //           <MenuItem value="Active">Active</MenuItem>
-//           <MenuItem value="Pending">Pending</MenuItem>
 //           <MenuItem value="Inactive">Inactive</MenuItem>
 //         </TextField>
-
-//         <TextField select label="Society Type" defaultValue="" style={styles.textField}>
+//         <TextField select size="small" label="Type" value={typeFilter} onChange={e => setTypeFilter(e.target.value)}>
 //           <MenuItem value="">All</MenuItem>
 //           <MenuItem value="Residential">Residential</MenuItem>
 //           <MenuItem value="Commercial">Commercial</MenuItem>
 //         </TextField>
 //       </Box>
 
-//       {/* Table */}
-//       <Card style={styles.card}>
+//       <Typography variant="h6" style={{ marginBottom: 10 }}>
+//         Registered Societies ({filteredSocieties.length})
+//       </Typography>
+
+//       <Card>
 //         <CardContent>
-//           <Typography variant="h6" style={{ marginBottom: 10 }}>
-//             Registered Societies ({filtered.length})
-//           </Typography>
-//           <TableContainer>
-//             <Table>
+//           <TableContainer style={{ maxHeight: "65vh" }}>
+//             <Table stickyHeader>
 //               <TableHead>
 //                 <TableRow>
-//                   <TableCell style={styles.tableHeader}>Description</TableCell>
+//                   <TableCell style={styles.tableHeader}>Society Name</TableCell>
 //                   <TableCell style={styles.tableHeader}>Registration Number</TableCell>
 //                   <TableCell style={styles.tableHeader}>Address</TableCell>
 //                   <TableCell style={styles.tableHeader}>City</TableCell>
 //                   <TableCell style={styles.tableHeader}>State</TableCell>
-//                   <TableCell style={styles.tableHeader}>Year Built</TableCell>
-//                   <TableCell style={styles.tableHeader}>Type</TableCell>
-//                   <TableCell style={styles.tableHeader}>Status</TableCell>
 //                   <TableCell style={styles.tableHeader}>Actions</TableCell>
 //                 </TableRow>
 //               </TableHead>
 //               <TableBody>
-//                 {filtered.map((s) => (
+//                 {filteredSocieties.map((s) => (
 //                   <TableRow key={s.society_id}>
 //                     <TableCell>{s.descn}</TableCell>
-//                     <TableCell>
-//                       <Chip label={s.registration_number} style={styles.chipRegNo} />
-//                     </TableCell>
+//                     <TableCell><Chip label={s.registration_number} style={styles.chipRegNo} /></TableCell>
 //                     <TableCell>{s.address}</TableCell>
 //                     <TableCell>{s.city}</TableCell>
 //                     <TableCell>{s.state}</TableCell>
-//                     <TableCell>{s.year_built}</TableCell>
-//                     <TableCell>{s.typeofsociety}</TableCell>
-//                     <TableCell>
-//                       <Chip
-//                         label={s.active ? "Active" : "Inactive"}
-//                         variant="outlined"
-//                         style={s.active ? statusColors.Active : statusColors.Inactive}
-//                       />
-//                     </TableCell>
 //                     <TableCell>
 //                       <IconButton size="small" color="primary"><VisibilityIcon /></IconButton>
 //                       <IconButton size="small" color="secondary"><EditIcon /></IconButton>
+//                       {/* <IconButton
+//                         size="small"
+//                         color="secondary"
+//                         component={Link}
+//                         to={{
+//                           pathname: "/SocietyAdminInvitation",
+//                           state: { prefill: s } // Pass row data
+//                         }}
+//                       >
+//                         <MailOutlineIcon />
+//                       </IconButton> */}
+//                       <Link 
+//   to="/SocietyAdminInvitation" 
+//   state={{ prefill: s }}
+// >
+//   <IconButton size="small" color="secondary">
+//     <MailOutlineIcon />
+//   </IconButton>
+// </Link>
+
 //                     </TableCell>
 //                   </TableRow>
 //                 ))}
@@ -690,366 +156,169 @@
 // export default SocietyList;
 
 
-// import React, { useState, useEffect } from "react";
-// import {
-//   Box,
-//   TextField,
-//   MenuItem,
-//   Card,
-//   CardContent,
-//   Typography,
-//   Table,
-//   TableBody,
-//   TableCell,
-//   TableContainer,
-//   TableHead,
-//   TableRow,
-//   Chip,
-//   IconButton,
-//   Pagination,
-//   InputAdornment,
-// } from "@mui/material";
-// import SearchIcon from "@mui/icons-material/Search";
-// import EditIcon from "@mui/icons-material/Edit";
-// import VisibilityIcon from "@mui/icons-material/Visibility";
-
-// import { GetSocietiesApi } from "../APICall/APICall";
-
-// // Status Colors
-// const statusColors = {
-//   Active: { borderColor: "#4caf50", color: "#4caf50" },
-//   Pending: { borderColor: "#ff9800", color: "#ff9800" },
-//   Inactive: { borderColor: "#9e9e9e", color: "#9e9e9e" },
-// };
-
-// // Internal CSS
-// const styles = {
-//   container: { padding: 20, width: "100%" },
-//   searchContainer: { display: "flex", justifyContent: "space-between", marginBottom: 20 },
-//   textField: { marginRight: 10, minWidth: 150 },
-//   card: { marginTop: 20 },
-//   tableHeader: { fontWeight: "bold" },
-//   chipRegNo: { backgroundColor: "#f3f0f8", fontWeight: "bold" },
-//   paginationContainer: { display: "flex", justifyContent: "flex-end", marginTop: 20 },
-// };
-
-// const SocietyList = () => {
-//   const [societies, setSocieties] = useState([]);
-//   const [loading, setLoading] = useState(true);
-
-
-// useEffect(() => {
-//   const fetchSocieties = async () => {
-//     try {
-//       const payload = {}; // or pass filters if needed
-//       const res = await GetSocietiesApi(payload); // res = { Success: true, Data: [...] }
-//       console.log("API Response Data:", res);
-
-//       if (res && res.Success && res.Data) {
-//         setSocieties(res.Data); // ✅ use the Data array
-//       } else {
-//         setSocieties([]);
-//       }
-//     } catch (error) {
-//       console.error("Error fetching societies:", error);
-//       setSocieties([]);
-//     } finally {
-//       setLoading(false);
-//     }
-//   };
-
-//   fetchSocieties();
-// }, []);
-
-
-//   if (loading) {
-//     return (
-//       <Box style={styles.container}>
-//         <Typography>Loading societies...</Typography>
-//       </Box>
-//     );
-//   }
-
-//   return (
-//     <Box style={styles.container}>
-//       {/* Search & Filters (display only, not functional) */}
-//       <Box style={styles.searchContainer}>
-//         <TextField
-//           variant="outlined"
-//           placeholder="Search by description, registration number, city, or state"
-//           fullWidth
-//           InputProps={{
-//             startAdornment: (
-//               <InputAdornment position="start">
-//                 <SearchIcon />
-//               </InputAdornment>
-//             ),
-//           }}
-//           style={{ marginRight: 10 }}
-//           disabled
-//         />
-
-//         <TextField select label="All Status" defaultValue="" style={styles.textField} disabled>
-//           <MenuItem value="">All</MenuItem>
-//           <MenuItem value="Active">Active</MenuItem>
-//           <MenuItem value="Pending">Pending</MenuItem>
-//           <MenuItem value="Inactive">Inactive</MenuItem>
-//         </TextField>
-
-//         <TextField select label="Society Type" defaultValue="" style={styles.textField} disabled>
-//           <MenuItem value="">All</MenuItem>
-//           <MenuItem value="Residential">Residential</MenuItem>
-//           <MenuItem value="Commercial">Commercial</MenuItem>
-//         </TextField>
-//       </Box>
-
-//       {/* Table */}
-//       <Card style={styles.card}>
-//         <CardContent>
-//           <Typography variant="h6" style={{ marginBottom: 10 }}>
-//             Registered Societies ({societies.length})
-//           </Typography>
-//           <TableContainer>
-//             <Table>
-//               <TableHead>
-//                 <TableRow>
-//                   <TableCell style={styles.tableHeader}>Description</TableCell>
-//                   <TableCell style={styles.tableHeader}>Registration Number</TableCell>
-//                   <TableCell style={styles.tableHeader}>Address</TableCell>
-//                   <TableCell style={styles.tableHeader}>City</TableCell>
-//                   <TableCell style={styles.tableHeader}>State</TableCell>
-//                   <TableCell style={styles.tableHeader}>Year Built</TableCell>
-//                   <TableCell style={styles.tableHeader}>Type</TableCell>
-//                   <TableCell style={styles.tableHeader}>Status</TableCell>
-//                   <TableCell style={styles.tableHeader}>Actions</TableCell>
-//                 </TableRow>
-//               </TableHead>
-//               <TableBody>
-//                 {societies.map((s) => (
-//                   <TableRow key={s.society_id}>
-//                     <TableCell>{s.descn}</TableCell>
-//                     <TableCell>
-//                       <Chip label={s.registration_number} style={styles.chipRegNo} />
-//                     </TableCell>
-//                     <TableCell>{s.address}</TableCell>
-//                     <TableCell>{s.city}</TableCell>
-//                     <TableCell>{s.state}</TableCell>
-//                     <TableCell>{s.year_built}</TableCell>
-//                     <TableCell>{s.typeofsociety}</TableCell>
-//                     <TableCell>
-//                       <Chip
-//                         label={s.active ? "Active" : "Inactive"}
-//                         variant="outlined"
-//                         style={s.active ? statusColors.Active : statusColors.Inactive}
-//                       />
-//                     </TableCell>
-//                     <TableCell>
-//                       <IconButton size="small" color="primary"><VisibilityIcon /></IconButton>
-//                       <IconButton size="small" color="secondary"><EditIcon /></IconButton>
-//                     </TableCell>
-//                   </TableRow>
-//                 ))}
-//               </TableBody>
-//             </Table>
-//           </TableContainer>
-
-//           <Box style={styles.paginationContainer}>
-//             <Pagination count={1} page={1} color="primary" />
-//           </Box>
-//         </CardContent>
-//       </Card>
-//     </Box>
-//   );
-// };
-
-// export default SocietyList;
-
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import {
-  Box,
-  TextField,
-  MenuItem,
-  Card,
-  CardContent,
-  Typography,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-  Chip,
-  IconButton,
-  Pagination,
-  InputAdornment,
+  Box, TextField, MenuItem, Card, CardContent, Typography, Table, TableBody, TableCell,
+  TableContainer, TableHead, TableRow, Chip, IconButton, Pagination, InputAdornment,
 } from "@mui/material";
+import { Link } from "react-router-dom";
 import SearchIcon from "@mui/icons-material/Search";
 import EditIcon from "@mui/icons-material/Edit";
 import VisibilityIcon from "@mui/icons-material/Visibility";
+import MailOutlineIcon from '@mui/icons-material/MailOutline';
+import { GetSocietiesApi } from "../APICall/APIService";
+import { UserContext } from "../context/UserContext"; // <-- import UserContext
 
-import { GetSocietiesApi } from "../APICall/APICall";
 
-// Status Colors
-const statusColors = {
-  Active: { borderColor: "#4caf50", color: "#4caf50" },
-  Pending: { borderColor: "#ff9800", color: "#ff9800" },
-  Inactive: { borderColor: "#9e9e9e", color: "#9e9e9e" },
-};
-
-// Styles
 const styles = {
-  container: { padding: 20, width: "100%" },
-  searchContainer: {
-    display: "flex",
-    flexWrap: "wrap",
-    gap: 10,
-    marginBottom: 20,
-    alignItems: "center",
-  },
-  searchInput: { flex: 1, minWidth: 200 },
-  textField: { minWidth: 150 },
-  card: { marginTop: 20 },
-  tableHeader: { fontWeight: "bold" },
-  chipRegNo: { backgroundColor: "#f3f0f8", fontWeight: "bold" },
-  paginationContainer: { display: "flex", justifyContent: "flex-end", marginTop: 20 },
+ container: { 
+  padding: 15, 
+  width: "100%", 
+  height: "50%" 
+},
+
+searchContainer: { 
+  display: "flex", 
+  flexWrap: "wrap", 
+  gap: 10, 
+  marginBottom: 20, 
+  alignItems: "center", 
+  justifyContent: "space-between",   
+  position: "sticky", 
+  top: 0, 
+  zIndex: 10, 
+  backgroundColor: "#fff",   // ✅ हलका ग्रे background
+  borderBottom: "1px solid #ddd", 
+  padding: "2px 12px",          // ✅ आतली जागा
+  minHeight: "70px",                 
+  width: "98%",                     
+  borderRadius: "8px",               
+  boxShadow: "0 2px 6px rgba(0,0,0,0.1)", 
+           // ✅ उजवीकडे 5px जागा
+},
+
+
+
+
+searchInput: { 
+  width: "55%",   // ✅ फिक्स 50% 
+  minWidth: 200   // optional, छोटे स्क्रीनवर किमान 200px राहील
+},
+
+chipRegNo: { 
+  backgroundColor: "#f3f0f8", 
+  fontWeight: "bold",
+  width: "60%",   // ✅ आधीपेक्षा मोठं
+},
+
+ 
+  tableHeader: { fontWeight: "bold", position: "sticky", zIndex: 5 },
+  paginationContainer: { display: "flex", justifyContent: "flex-end", marginTop: 10 },
 };
 
 const SocietyList = () => {
+  const { user } = useContext(UserContext); // <-- logged-in user
   const [societies, setSocieties] = useState([]);
   const [filteredSocieties, setFilteredSocieties] = useState([]);
-  const [loading, setLoading] = useState(true);
-
   const [searchText, setSearchText] = useState("");
   const [statusFilter, setStatusFilter] = useState("");
   const [typeFilter, setTypeFilter] = useState("");
+  const [loading, setLoading] = useState(true);
 
-  // Fetch societies
   useEffect(() => {
     const fetchSocieties = async () => {
       try {
-        const payload = {};
-        const res = await GetSocietiesApi(payload); // { Success: true, Data: [...] }
-        if (res && res.Success && res.Data) {
-          setSocieties(res.Data);
-          setFilteredSocieties(res.Data);
-        } else {
-          setSocieties([]);
-          setFilteredSocieties([]);
+        const res = await GetSocietiesApi({});
+        if (res?.Success && res.Data) {
+          let societyData = res.Data;
+
+          // ✅ Super Admin sees all societies, others see only their own society
+          if (user && user.roleId !== 161) { // assuming roleId 1 = Super Admin
+            societyData = societyData.filter(s => s.society_id === user.societyId);
+          }
+
+          setSocieties(societyData);
+          setFilteredSocieties(societyData);
         }
       } catch (error) {
-        console.error("Error fetching societies:", error);
-        setSocieties([]);
-        setFilteredSocieties([]);
+        console.error(error);
       } finally {
         setLoading(false);
       }
     };
 
     fetchSocieties();
-  }, []);
+  }, [user]);
 
-  // Apply filters
   useEffect(() => {
     let filtered = [...societies];
-
-    // Text search
     if (searchText.trim()) {
       const text = searchText.toLowerCase();
-      filtered = filtered.filter(
-        (s) =>
-          s.descn.toLowerCase().includes(text) ||
-          s.registration_number.toLowerCase().includes(text) ||
-          s.city.toLowerCase().includes(text) ||
-          s.state.toLowerCase().includes(text)
-      );
+      filtered = filtered.filter(s => s.descn.toLowerCase().includes(text) || s.registration_number.toLowerCase().includes(text));
     }
-
-    // Status filter
-    if (statusFilter) {
-      filtered = filtered.filter((s) => {
-        const status = s.active ? "Active" : "Inactive"; // Adjust if Pending exists
-        return status === statusFilter;
-      });
-    }
-
-    // Type filter
-    if (typeFilter) {
-      filtered = filtered.filter((s) => s.typeofsociety === typeFilter);
-    }
-
+    if (statusFilter) filtered = filtered.filter(s => (s.active ? "Active" : "Inactive") === statusFilter);
+    if (typeFilter) filtered = filtered.filter(s => s.typeofsociety === typeFilter);
     setFilteredSocieties(filtered);
   }, [searchText, statusFilter, typeFilter, societies]);
 
-  if (loading) {
-    return (
-      <Box style={styles.container}>
-        <Typography>Loading societies...</Typography>
-      </Box>
-    );
-  }
+  if (loading) return <Box style={styles.container}><Typography>Loading societies...</Typography></Box>;
 
   return (
     <Box style={styles.container}>
-      {/* Filters - single responsive row */}
       <Box style={styles.searchContainer}>
         <TextField
           variant="outlined"
-          placeholder="Search by description, registration number, city, or state"
+          placeholder="Search"
           value={searchText}
           onChange={(e) => setSearchText(e.target.value)}
           style={styles.searchInput}
-          InputProps={{
-            startAdornment: (
-              <InputAdornment position="start">
-                <SearchIcon />
-              </InputAdornment>
-            ),
-          }}
+          InputProps={{ startAdornment: (<InputAdornment position="start"><SearchIcon /></InputAdornment>), style: { height: 36, padding: "0 8px" } }}
         />
 
-        <TextField
-          select
-          label="All Status"
-          value={statusFilter}
-          onChange={(e) => setStatusFilter(e.target.value)}
-          style={styles.textField}
-        >
-          <MenuItem value="">All</MenuItem>
-          <MenuItem value="Active">Active</MenuItem>
-          <MenuItem value="Inactive">Inactive</MenuItem>
-        </TextField>
+       <TextField
+  select
+  size="small"
+  label="Status"
+  value={statusFilter}
+  onChange={e => setStatusFilter(e.target.value)}
+  sx={{ width: "250px", mr: 2 }}   // ✅ इथे width दिला
+>
+  <MenuItem value="">All</MenuItem>
+  <MenuItem value="Active">Active</MenuItem>
+  <MenuItem value="Inactive">Inactive</MenuItem>
+</TextField>
 
-        <TextField
-          select
-          label="Society Type"
-          value={typeFilter}
-          onChange={(e) => setTypeFilter(e.target.value)}
-          style={styles.textField}
-        >
-          <MenuItem value="">All</MenuItem>
-          <MenuItem value="Residential">Residential</MenuItem>
-          <MenuItem value="Commercial">Commercial</MenuItem>
-        </TextField>
+<TextField
+  select
+  size="small"
+  label="Type"
+  value={typeFilter}
+  onChange={e => setTypeFilter(e.target.value)}
+  sx={{ width: "250px" }}   // ✅ width दिला
+>
+  <MenuItem value="">All</MenuItem>
+  <MenuItem value="Residential">Residential</MenuItem>
+  <MenuItem value="Commercial">Commercial</MenuItem>
+</TextField>
+
+      
       </Box>
 
-      {/* Table */}
-      <Card style={styles.card}>
+      <Typography variant="h6" style={{ marginBottom: 10 }}>
+        Registered Societies ({filteredSocieties.length})
+      </Typography>
+
+      <Card>
         <CardContent>
-          <Typography variant="h6" style={{ marginBottom: 10 }}>
-            Registered Societies ({filteredSocieties.length})
-          </Typography>
-          <TableContainer>
-            <Table>
+          <TableContainer style={{ maxHeight: "65vh" }}>
+            <Table stickyHeader>
               <TableHead>
                 <TableRow>
-                  <TableCell style={styles.tableHeader}>Description</TableCell>
+                  <TableCell style={styles.tableHeader}>Society Name</TableCell>
                   <TableCell style={styles.tableHeader}>Registration Number</TableCell>
                   <TableCell style={styles.tableHeader}>Address</TableCell>
                   <TableCell style={styles.tableHeader}>City</TableCell>
                   <TableCell style={styles.tableHeader}>State</TableCell>
-                  <TableCell style={styles.tableHeader}>Year Built</TableCell>
-                  <TableCell style={styles.tableHeader}>Type</TableCell>
-                  <TableCell style={styles.tableHeader}>Status</TableCell>
                   <TableCell style={styles.tableHeader}>Actions</TableCell>
                 </TableRow>
               </TableHead>
@@ -1057,28 +326,31 @@ const SocietyList = () => {
                 {filteredSocieties.map((s) => (
                   <TableRow key={s.society_id}>
                     <TableCell>{s.descn}</TableCell>
-                    <TableCell>
-                      <Chip label={s.registration_number} style={styles.chipRegNo} />
-                    </TableCell>
+                    <TableCell><Chip label={s.registration_number} style={styles.chipRegNo} /></TableCell>
                     <TableCell>{s.address}</TableCell>
                     <TableCell>{s.city}</TableCell>
                     <TableCell>{s.state}</TableCell>
-                    <TableCell>{s.year_built}</TableCell>
-                    <TableCell>{s.typeofsociety}</TableCell>
                     <TableCell>
-                      <Chip
-                        label={s.active ? "Active" : "Inactive"}
-                        variant="outlined"
-                        style={s.active ? statusColors.Active : statusColors.Inactive}
-                      />
-                    </TableCell>
-                    <TableCell>
-                      <IconButton size="small" color="primary">
-                        <VisibilityIcon />
-                      </IconButton>
-                      <IconButton size="small" color="secondary">
-                        <EditIcon />
-                      </IconButton>
+                       {/* <Link to="/PropertyRegister" state={{ prefill: s }}>
+                      <IconButton size="small" color="primary"><VisibilityIcon /></IconButton>
+                      </Link>
+                       */}
+
+                       <Link
+  to="/PropertyRegister"
+  state={{ societyId: s.society_id }}   // 👈 pass societyId in state
+>
+  <IconButton size="small" color="primary">
+    <VisibilityIcon />
+  </IconButton>
+</Link>
+
+                      <IconButton size="small" color="secondary"><EditIcon /></IconButton>
+                      <Link to="/SocietyAdminInvitation" state={{ prefill: s }}>
+                        <IconButton size="small" color="secondary">
+                          <MailOutlineIcon />
+                        </IconButton>
+                      </Link>
                     </TableCell>
                   </TableRow>
                 ))}
@@ -1096,3 +368,259 @@ const SocietyList = () => {
 };
 
 export default SocietyList;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import React, { useState, useEffect, useContext } from "react";
+// import {
+//   Box,
+//   TextField,
+//   MenuItem,
+//   Card,
+//   CardContent,
+//   Typography,
+//   Table,
+//   TableBody,
+//   TableCell,
+//   TableContainer,
+//   TableHead,
+//   TableRow,
+//   Chip,
+//   IconButton,
+//   Pagination,
+//   InputAdornment,
+// } from "@mui/material";
+// import { Link } from "react-router-dom";
+// import SearchIcon from "@mui/icons-material/Search";
+// import EditIcon from "@mui/icons-material/Edit";
+// import VisibilityIcon from "@mui/icons-material/Visibility";
+// import MailOutlineIcon from "@mui/icons-material/MailOutline";
+// import { GetSocietiesApi } from "../APICall/APIService";
+// import { UserContext } from "../context/UserContext";
+
+// const styles = {
+//   container: {
+//     padding: 16,
+//     width: "100%",
+//     height: "100%",
+//     backgroundColor: "#f9f9f9",
+//   },
+//   searchContainer: {
+//     display: "flex",
+//     flexWrap: "wrap",
+//     gap: 50,
+//     marginBottom: 20,
+//     alignItems: "center",
+//     position: "sticky",
+//     top: 0,
+//     zIndex: 10,
+//     backgroundColor: "#fff",
+//     borderBottom: "1px solid #ddd",
+//     padding: 8,
+//     borderRadius: 4,
+//   },
+//   searchInput: {
+//     flex: 1,
+//     width: "60%",
+//     backgroundColor: "#fff",
+//   },
+//   chipRegNo: {
+//     backgroundColor: "#e0e0e0",
+//     fontWeight: 600,
+//     color: "#333",
+//     width:"39%",
+//   },
+//   tableHeader: {
+//     fontWeight: 700,
+//     backgroundColor: "#f0f0f0",
+//     position: "sticky",
+//     top: 0,
+//     zIndex: 5,
+//   },
+//   tableRow: {
+//     "&:hover": {
+//       backgroundColor: "#f5f5f5",
+//     },
+//   },
+//   paginationContainer: {
+//     display: "flex",
+//     justifyContent: "flex-end",
+//     marginTop: 12,
+//   },
+//   cardContent: {
+//     padding: 16,
+//   },
+// };
+
+// const SocietyList = () => {
+//   const { user } = useContext(UserContext);
+//   const [societies, setSocieties] = useState([]);
+//   const [filteredSocieties, setFilteredSocieties] = useState([]);
+//   const [searchText, setSearchText] = useState("");
+//   const [statusFilter, setStatusFilter] = useState("");
+//   const [typeFilter, setTypeFilter] = useState("");
+//   const [loading, setLoading] = useState(true);
+
+//   useEffect(() => {
+//     const fetchSocieties = async () => {
+//       try {
+//         const res = await GetSocietiesApi({});
+//         if (res?.Success && res.Data) {
+//           let societyData = res.Data;
+
+//           // Super Admin sees all societies
+//           if (user && user.roleId !== 1) {
+//             societyData = societyData.filter((s) => s.society_id === user.societyId);
+//           }
+
+//           setSocieties(societyData);
+//           setFilteredSocieties(societyData);
+//         }
+//       } catch (error) {
+//         console.error(error);
+//       } finally {
+//         setLoading(false);
+//       }
+//     };
+
+//     fetchSocieties();
+//   }, [user]);
+
+//   useEffect(() => {
+//     let filtered = [...societies];
+//     if (searchText.trim()) {
+//       const text = searchText.toLowerCase();
+//       filtered = filtered.filter(
+//         (s) =>
+//           s.descn.toLowerCase().includes(text) ||
+//           s.registration_number.toLowerCase().includes(text)
+//       );
+//     }
+//     if (statusFilter)
+//       filtered = filtered.filter((s) => (s.active ? "Active" : "Inactive") === statusFilter);
+//     if (typeFilter) filtered = filtered.filter((s) => s.typeofsociety === typeFilter);
+//     setFilteredSocieties(filtered);
+//   }, [searchText, statusFilter, typeFilter, societies]);
+
+//   if (loading)
+//     return (
+//       <Box style={styles.container}>
+//         <Typography>Loading societies...</Typography>
+//       </Box>
+//     );
+
+//   return (
+//     <Box style={styles.container}>
+//       <Box style={styles.searchContainer}>
+//         <TextField
+//           variant="outlined"
+//           placeholder="Search"
+//           value={searchText}
+//           onChange={(e) => setSearchText(e.target.value)}
+//           style={styles.searchInput}
+//           InputProps={{
+//             startAdornment: <InputAdornment position="start"><SearchIcon /></InputAdornment>,
+//             style: { height: 36, padding: "0 8px" },
+//           }}
+//         />
+//         <TextField
+//           select
+//           size="small"
+//           label="Status"
+//           value={statusFilter}
+//           onChange={(e) => setStatusFilter(e.target.value)}
+//         >
+//           <MenuItem value="">All</MenuItem>
+//           <MenuItem value="Active">Active</MenuItem>
+//           <MenuItem value="Inactive">Inactive</MenuItem>
+//         </TextField>
+//         <TextField
+//           select
+//           size="small"
+//           label="Type"
+//           value={typeFilter}
+//           onChange={(e) => setTypeFilter(e.target.value)}
+//         >
+//           <MenuItem value="">All</MenuItem>
+//           <MenuItem value="Residential">Residential</MenuItem>
+//           <MenuItem value="Commercial">Commercial</MenuItem>
+//         </TextField>
+//       </Box>
+
+//       <Typography variant="h6" style={{ marginBottom: 10 }}>
+//         Registered Societies ({filteredSocieties.length})
+//       </Typography>
+
+//       <Card>
+//         <CardContent style={styles.cardContent}>
+//           <TableContainer style={{ maxHeight: "65vh" }}>
+//             <Table stickyHeader>
+//               <TableHead>
+//                 <TableRow>
+//                   <TableCell style={styles.tableHeader}>Society Name</TableCell>
+//                   <TableCell style={styles.tableHeader}>Registration Number</TableCell>
+//                   <TableCell style={styles.tableHeader}>Address</TableCell>
+//                   <TableCell style={styles.tableHeader}>City</TableCell>
+//                   <TableCell style={styles.tableHeader}>State</TableCell>
+//                   <TableCell style={styles.tableHeader}>Actions</TableCell>
+//                 </TableRow>
+//               </TableHead>
+//               <TableBody>
+//                 {filteredSocieties.map((s) => (
+//                   <TableRow key={s.society_id} hover>
+//                     <TableCell>{s.descn}</TableCell>
+//                     <TableCell>
+//                       <Chip label={s.registration_number} style={styles.chipRegNo} />
+//                     </TableCell>
+//                     <TableCell>{s.address}</TableCell>
+//                     <TableCell>{s.city}</TableCell>
+//                     <TableCell>{s.state}</TableCell>
+//                     <TableCell>
+//                       <Link to="/PropertyRegister" state={{ societyId: s.society_id }}>
+//                         <IconButton size="small" color="primary">
+//                           <VisibilityIcon />
+//                         </IconButton>
+//                       </Link>
+//                       <IconButton size="small" color="secondary">
+//                         <EditIcon />
+//                       </IconButton>
+//                       <Link to="/SocietyAdminInvitation" state={{ prefill: s }}>
+//                         <IconButton size="small" color="secondary">
+//                           <MailOutlineIcon />
+//                         </IconButton>
+//                       </Link>
+//                     </TableCell>
+//                   </TableRow>
+//                 ))}
+//               </TableBody>
+//             </Table>
+//           </TableContainer>
+
+//           <Box style={styles.paginationContainer}>
+//             <Pagination count={1} page={1} color="primary" />
+//           </Box>
+//         </CardContent>
+//       </Card>
+//     </Box>
+//   );
+// };
+
+// export default SocietyList;
+
+

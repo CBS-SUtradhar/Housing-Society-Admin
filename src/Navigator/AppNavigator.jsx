@@ -74,6 +74,10 @@ import SocietyList from "../Pages/SocietyList";
 import RegisterSociety from "../Pages/RegisterSociety";
 import Reports from "../Pages/Reports";
 import Login from "../Pages/Login";
+import SocietyAdmin from "../Pages/SocietyAdminInvitation";
+import CreateAccount from "../Pages/CreateAccount";
+import SocietyAdminInvitation from "../Pages/SocietyAdminInvitation";
+import PropertyRegister from "../Pages/PropertyRegister";
 
 const AppNavigator = () => {
   return (
@@ -86,8 +90,11 @@ const AppNavigator = () => {
         <Route element={<AppLayout />}>
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/register-society" element={<RegisterSociety />} />
+           <Route path="/SocietyAdminInvitation" element={<SocietyAdminInvitation />} />
+            <Route path="/PropertyRegister" element={<PropertyRegister />} />
           <Route path="/society-list" element={<SocietyList />} />
           <Route path="/reports" element={<Reports />} />
+          <Route path="/createaccount" element={<CreateAccount />} />
         </Route>
 
         {/* Default route → redirect to login */}

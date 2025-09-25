@@ -357,7 +357,6 @@
 
 
 
-import { width } from "@mui/system";
 import React from "react";
 import {
   LineChart,
@@ -518,87 +517,188 @@ export default function Dashboard() {
 }
 
 // Internal CSS styles
+// const styles = {
+//   container: {
+//     height: "100vh", // Full screen height
+//     display: "flex",
+//     flexDirection: "column",
+//     justifyContent: "space-between", // Spread content evenly
+//     //padding: "10px",
+//      padding: "10px 20px 20px 20px",
+//     background: "#f9fafb",
+//     fontFamily: "Arial, sans-serif",
+//     boxSizing: "border-box",
+//   width: "100%",
+//   },
+//   heading: { fontSize: "20px", fontWeight: "bold",  },
+//   subHeading: { color: "#6b7280", marginBottom: "10px" },
+
+//   // Cards Row
+//   cardRow: {
+//     display: "flex",
+//     justifyContent: "space-between",
+//     gap: "16px",
+    
+//   },
+//   card: {
+//     flex: 1,
+//     background: "white",
+//     padding: "8px",
+//     borderRadius: "12px",
+//     boxShadow: "0 2px 6px rgba(0,0,0,0.1)",
+//     minWidth: "160px",
+//     height: "80%",
+//   },
+//   cardTitle: { color: "#6b7280", fontSize: "14px" },
+//   cardValue: { fontSize: "20px", fontWeight: "bold", margin: "4px 0" },
+//   cardChange: { fontSize: "12px" },
+
+//   // Charts Row
+//   chartRow: {
+//     display: "flex",
+//     gap: "16px",
+//     flex: 1,
+//      margin: "5px 0",
+//   },
+//   chartCard: {
+//     flex: 1,
+//     background: "white",
+//    // padding: "18px",
+//     borderRadius: "12px",
+//     boxShadow: "0 2px 6px rgba(0,0,0,0.1)",
+//     height: "80%",
+//      padding: "10px 20px 20px 20px",
+//   },
+//   chartTitle: { fontWeight: "600",},
+
+//   // Recently Registered
+//   section: {
+//     background: "white",
+//     padding: "12px",
+//       borderRadius: "12px",
+//     boxShadow: "0 2px 6px rgba(0,0,0,0.1)",
+//     marginTop: "0px",
+//   },
+//   sectionHeader: {
+//     display: "flex",
+//     justifyContent: "space-between",
+//     //marginBottom: "5px",
+//     alignItems: "center",
+//   },
+//   viewAll: {
+//     background: "none",
+//     border: "none",
+//     color: "#2563eb",
+//     fontSize: "14px",
+//     cursor: "pointer",
+//   },
+//   recentGrid: {
+//     display: "flex",
+//     gap: "12px",
+//   },
+//   recentCard: {
+//     flex: 1,
+//     border: "1px solid #e5e7eb",
+//     padding: "10px",
+//     borderRadius: "8px",
+//     transition: "all 0.2s",
+//   },
+//   recentTitle: { fontWeight: "600" },
+//   recentLocation: { color: "#6b7280", fontSize: "13px" },
+//   recentInfo: { fontSize: "13px", marginTop: "6px" },
+// };
+
 const styles = {
   container: {
-    height: "100vh", // Full screen height
+    height: "92vh", // Full screen fix
     display: "flex",
     flexDirection: "column",
-    justifyContent: "space-between", // Spread content evenly
-    padding: "20px",
+    gap: "10px",
+    padding: "0px 20px",
     background: "#f9fafb",
     fontFamily: "Arial, sans-serif",
     boxSizing: "border-box",
-  width: "100%",
+    width: "100%",
   },
-  heading: { fontSize: "24px", fontWeight: "bold", marginBottom: "8px" },
-  subHeading: { color: "#6b7280", marginBottom: "16px" },
+  heading: { fontSize: "20px", fontWeight: "bold" },
+  subHeading: { color: "#6b7280",  },
 
-  // Cards Row
+  // Cards Row (20%)
   cardRow: {
     display: "flex",
     justifyContent: "space-between",
-    gap: "16px",
+    gap: "12px",
+    flex: "0 0 8%", // fixed 20% height
   },
   card: {
     flex: 1,
     background: "white",
-    padding: "12px",
-    borderRadius: "12px",
-    boxShadow: "0 2px 6px rgba(0,0,0,0.1)",
-    minWidth: "160px",
+    padding: "10px",
+    borderRadius: "10px",
+    boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
+    minWidth: "140px",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
   },
-  cardTitle: { color: "#6b7280", fontSize: "14px" },
-  cardValue: { fontSize: "20px", fontWeight: "bold", margin: "4px 0" },
+  cardTitle: { color: "#6b7280", fontSize: "13px" },
+  cardValue: { fontSize: "18px", fontWeight: "bold", margin: "4px 0" },
   cardChange: { fontSize: "12px" },
 
-  // Charts Row
+  // Charts Row (20%)
   chartRow: {
     display: "flex",
-    gap: "16px",
-    flex: 1,
-    margin: "16px 0",
+    gap: "12px",
+    flex: "0 0 17%", // fixed 20% height
   },
   chartCard: {
     flex: 1,
     background: "white",
-    padding: "12px",
-    borderRadius: "12px",
-    boxShadow: "0 2px 6px rgba(0,0,0,0.1)",
+    padding: "8px",
+    borderRadius: "10px",
+    boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
+    display: "flex",
+    flexDirection: "column",
   },
-  chartTitle: { fontWeight: "600", marginBottom: "8px" },
+  chartTitle: { fontWeight: "600", fontSize: "14px", marginBottom: "4px" },
 
-  // Recently Registered
+  // Recently Registered (20%)
   section: {
+    flex: "0 0 20%", // fixed 20% height
     background: "white",
-    padding: "12px",
-    borderRadius: "12px",
-    boxShadow: "0 2px 6px rgba(0,0,0,0.1)",
+    padding: "10px",
+    borderRadius: "10px",
+    boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
+    display: "flex",
+    flexDirection: "column",
   },
   sectionHeader: {
     display: "flex",
     justifyContent: "space-between",
-    marginBottom: "8px",
     alignItems: "center",
+    marginBottom: "4px",
   },
   viewAll: {
     background: "none",
     border: "none",
     color: "#2563eb",
-    fontSize: "14px",
+    fontSize: "13px",
     cursor: "pointer",
   },
   recentGrid: {
     display: "flex",
-    gap: "12px",
+    gap: "8px",
+    flex: 1, // fill remaining height
   },
   recentCard: {
     flex: 1,
     border: "1px solid #e5e7eb",
-    padding: "10px",
+    padding: "6px",
     borderRadius: "8px",
     transition: "all 0.2s",
+    fontSize: "12px",
   },
-  recentTitle: { fontWeight: "600" },
-  recentLocation: { color: "#6b7280", fontSize: "13px" },
-  recentInfo: { fontSize: "13px", marginTop: "6px" },
+  recentTitle: { fontWeight: "600", fontSize: "13px" },
+  recentLocation: { color: "#6b7280", fontSize: "12px" },
+  recentInfo: { fontSize: "12px", marginTop: "4px" },
 };

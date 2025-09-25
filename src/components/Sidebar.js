@@ -237,6 +237,7 @@ import DashboardIcon from "@mui/icons-material/Dashboard";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import ListAltIcon from "@mui/icons-material/ListAlt";
 import AnalyticsIcon from "@mui/icons-material/Analytics";
+import GroupAddIcon from "@mui/icons-material/GroupAdd";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import SettingsIcon from "@mui/icons-material/Settings";
 import { useNavigate, useLocation } from "react-router-dom";
@@ -251,6 +252,7 @@ const Sidebar = () => {
     { text: "Dashboard", icon: <DashboardIcon />, path: "/dashboard" },
     { text: "Register Society", icon: <AddCircleOutlineIcon />, path: "/register-society" },
     { text: "Society List", icon: <ListAltIcon />, path: "/society-list" },
+    { text: "Society Admin Invitation", icon: <GroupAddIcon />, path: "/societyadmin" },
     { text: "Reports & Analytics", icon: <AnalyticsIcon />, path: "/reports" },
     { text: "Notifications", icon: <NotificationsIcon />, path: "/notifications" },
     { text: "Settings", icon: <SettingsIcon />, path: "/settings" },

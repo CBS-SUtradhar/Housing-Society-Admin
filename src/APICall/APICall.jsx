@@ -1,20 +1,8 @@
-// import axios from "axios";
-// import { RegisteredUrl } from "./URL";
-
-
-
-// const postAPI = async (url, body) => {
-//   const resp = await axios.post(url, body);
-//   return resp.data;
-// };
-
-// export const RegisteredApi = (payload) => postAPI(RegisteredUrl, payload);
-
 
 
 // APICall.jsx
 import axios from "axios";
-import { GetMemberUrl, GetSocietiesUrl, LoginUrl, RegisteredUrl } from "./URL";
+import { GetMemberUrl, GetUserlistUrl, LoginUrl, PropertyRegisterUrl, SocietyAdminInvitationUrl, UpdateRegisteredApiUrl,  } from "./URL";
 
 const postAPI = async (url, body) => {
   console.log("POST",url, body);
@@ -35,15 +23,9 @@ export const GetMemberApi = async (payload) => {
 //   return resp.data;
 // };
 
+export const UpdateRegisteredApi = (payload) => postAPI(UpdateRegisteredApiUrl, payload);
+export const SocietyAdminInvitationApi = (payload) => postAPI(SocietyAdminInvitationUrl, payload);
 
-export const GetSocietiesApi = async (payload = {}) => {
-  try {
-    const resp = await axios.post(GetSocietiesUrl, payload);
-    return resp.data; // returns the data directly
-  } catch (error) {
-    console.error("API error:", error);
-    throw error;
-  }
-};
-
-export const RegisteredApi = (payload) => postAPI(RegisteredUrl, payload);
+export const GetUserlistApi = (payload) => postAPI(GetUserlistUrl, payload);
+export const PropertyRegisterApi = (payload) => postAPI(PropertyRegisterUrl, payload);
+  

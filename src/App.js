@@ -40,11 +40,26 @@
 // export default App;
 
 
+// import React from "react";
+// import AppNavigator from "./Navigator/AppNavigator";
+
+// const App = () => {
+//   return <AppNavigator />;
+// };
+
+// export default App;
+
+
 import React from "react";
 import AppNavigator from "./Navigator/AppNavigator";
+import { UserProvider } from "./context/UserContext.jsx"; // adjust path
 
 const App = () => {
-  return <AppNavigator />;
+  return (
+    <UserProvider>
+      <AppNavigator />
+    </UserProvider>
+  );
 };
 
 export default App;
